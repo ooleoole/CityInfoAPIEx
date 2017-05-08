@@ -21,5 +21,13 @@ namespace CityInfo.API.Controllers
                 .FirstOrDefault(p => p.Id == id);
             return pointOfInterest == null ? (IActionResult)NotFound() : Ok(pointOfInterest);
         }
+
+        [HttpPost("{cityId}/pointsofinterest")]
+        public IActionResult CreatePointOfInterest(int cityId, [FromBody] PointsOfInterestDto pointOfInterest)
+        {
+            if (pointOfInterest == null) return BadRequest();
+            
+        }
+
     }
 }
